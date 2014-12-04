@@ -1,0 +1,33 @@
+{
+  "name": "esp8266",
+  "description": "Command line interface for the ESP8266 module. Read and write files to/from the module and more.",
+  "keywords": [
+    "ESP8266"
+  ],
+  "author": {
+    "name": "Paul Cuthbertson",
+    "url": "http://paulcuth.me.uk"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=0.8.x"
+  },
+  "bin": {
+    "esp": "./bin/cli.js"
+  },
+  "homepage": "https://github.com/paulcuth/esp8266-cli",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulcuth/esp8266-cli"
+  },
+  "license": {
+    "type": "MIT"
+  },
+  "bugs": {
+    "url": "https://github.com/paulcuth/esp8266-cli/issues"
+  },
+  "dependencies": {
+    "es6-promise": "^2.0.0",
+    "serialport": "^1.4.6"
+  }
+}
