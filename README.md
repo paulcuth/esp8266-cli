@@ -3,7 +3,7 @@ Adminstister the file system and more on an ESP8266 that is flashed with [NodeMc
 
 ## Install
 ```
-$ npm install esp8622 -g
+$ npm install esp8266 -g
 ```
 
 ## Usage
