@@ -1,5 +1,5 @@
 # An ESP8266 command line interface.
-Adminstister the file system and more on an ESP8266 that is flashed with [NodeMcu firmware](https://github.com/nodemcu/nodemcu-firmware).
+Administer the file system and more on an ESP8266 that is flashed with [NodeMcu firmware](https://github.com/nodemcu/nodemcu-firmware).
 
 ## Install
 ```
@@ -65,8 +65,8 @@ Restarts the module.
 $ esp restart
 ```
 
-#### execute &lt;lua_code>
-Executes the content of a Lua file on the module, returns the output.
+#### execute &lt;lua>
+Executes Lua code on the module, returns the output.
 ```
 $ esp execute "print 'Mechanisms, not policy.'"
 Mechanisms, not policy.
