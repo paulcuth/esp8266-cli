@@ -97,9 +97,9 @@ DeviceManager.prototype._writeFileData = function (data) {
 
 DeviceManager.prototype._writeFileChunk = function (chunk) {
 	var command,
-		translate = { '\t': '\\t', '\n': '\\n', '\r': '\\r', '"': '\\"' };
+		translate = { '\t': '\\t', '\n': '\\n', '\r': '\\r', '"': '\\"', '\\': '\\\\' };
 
-	chunk = chunk.replace(/[\t\n\r"]/g, function (x) { return translate[x]; });
+	chunk = chunk.replace(/[\t\n\r"\\]/g, function (x) { return translate[x]; });
 	command = 'file.write"' + chunk + '"';
 
 	return this._sendCommand(command);

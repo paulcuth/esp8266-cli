@@ -8,14 +8,14 @@
     "name": "Paul Cuthbertson",
     "url": "http://paulcuth.me.uk"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": ">=0.8.x"
   },
   "bin": {
     "esp": "./bin/cli.js"
   },
-  "homepage": "https://github.com/paulcuth/esp8266-cli",
+  "homepage": "http://esp8266.co.uk",
   "repository": {
     "type": "git",
     "url": "https://github.com/paulcuth/esp8266-cli"
