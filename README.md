@@ -65,10 +65,10 @@ Restarts the module.
 $ esp restart
 ```
 
-#### execute &lt;lua>
-Executes Lua code on the module, returns the output.
+#### run &lt;lua>
+Runs Lua code on the module, returns the output.
 ```
-$ esp execute "print 'Mechanisms, not policy.'"
+$ esp run "print 'Mechanisms, not policy.'"
 Mechanisms, not policy.
 ```
 
