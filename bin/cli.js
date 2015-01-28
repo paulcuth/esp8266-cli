@@ -76,7 +76,13 @@ var config = {
 						break;
 
 					case 'html':
-						data = require('html-minifier').minify(data);
+						data = require('html-minifier').minify(data, {
+							removeComments: true,
+							collapseWhitespace: true,
+							removeRedundantAttributes: true,
+							minifyJS: true,
+							minifyCSS: true
+						});
 						break;
 
 					case 'js':
