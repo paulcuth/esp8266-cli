@@ -13,7 +13,10 @@ var SerialPort = require('serialport').SerialPort,
 function SerialComms (port) {
 	this._echoBuffer = '';
 	this._responseBuffer = '';
-	this._port = new SerialPort(port, { baudrate: 9600 }, false);
+	this._port = new SerialPort(port, { 
+		baudrate: 9600,
+		disconnectedCallback: process.exit
+	}, false);
 
 	this._initPort();
 }
