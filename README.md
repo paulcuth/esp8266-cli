@@ -33,16 +33,16 @@ $ esp file list
     1321 bytes  test.lua
 ```
 
-#### file remove &lt;remote_filename>
-Removes a file from the module.
-```
-$ esp file remove test.lua
-```
-
 #### file write &lt;local_filename> [&lt;remote_filename>]
 Writes a file from the local file system to the module. If a second filename is given, the local file will be renamed to this value on the device, else it will keep its local name.
 ```
 $ esp file write ./webserver.lua init.lua
+```
+
+#### file push &lt;local_filename> [&lt;remote_filename>]
+Alternative to `esp file write` that compress the file if they are of any of the following types: Lua, HTML, JavaScript, CSS. 
+```
+$ esp file push ./webserver.lua init.lua
 ```
 
 #### file read &lt;remote_filename>
@@ -57,6 +57,12 @@ Executes the content of a Lua file on the module, returns the output.
 ```
 $ esp file execute hello-world.lua
 Hello, world
+```
+
+#### file remove &lt;remote_filename>
+Removes a file from the module.
+```
+$ esp file remove test.lua
 ```
 
 #### restart

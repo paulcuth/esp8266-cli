@@ -62,7 +62,40 @@ var config = {
 			});
 		},
 
-		
+
+		push: function (filename, destination) {
+			var data = '' + fs.readFileSync(filename),
+				pathLib = require('path'),
+				basename = pathLib.basename(destination || filename),
+				match = filename.match(/\.([^\.]+)$/);
+
+			if (match) {
+				switch (match[1]) {
+					case 'lua':
+						data = require('luamin').minify(data);
+						break;
+
+					case 'html':
+						data = require('html-minifier').minify(data);
+						break;
+
+					case 'js':
+						data = require('uglify-js').minify(data, {fromString: true}).code;
+						break;
+
+					case 'css':
+						data = (new (require('clean-css'))).minify(data).styles;
+						break;
+				}
+			}
+
+			new SerialComms(port).on('ready', function (comms) {
+				new DeviceManager(comms).writeFile(basename, data)
+					.then(comms.close.bind(comms));
+			});
+		},
+
+
 		read: function (filename) {
 			new SerialComms(port).on('ready', function (comms) {
 				new DeviceManager(comms).readFile(filename)

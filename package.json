@@ -27,7 +27,11 @@
     "url": "https://github.com/paulcuth/esp8266-cli/issues"
   },
   "dependencies": {
+    "clean-css": "^3.0.7",
     "es6-promise": "^2.0.0",
-    "serialport": "^1.4.6"
+    "html-minifier": "^0.6.9",
+    "luamin": "^0.2.8",
+    "serialport": "^1.4.6",
+    "uglify-js": "^2.4.16"
   }
 }
