@@ -115,6 +115,7 @@ var config = {
 		execute: function (filename) {
 			new SerialComms(port).on('ready', function (comms) {
 				new DeviceManager(comms).executeFile(filename)
+					.then(console.log)
 					.then(comms.close.bind(comms));
 			});
 		}
