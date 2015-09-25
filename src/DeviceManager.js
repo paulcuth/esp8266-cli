@@ -100,7 +100,7 @@ DeviceManager.prototype._writeFileChunk = function (chunk) {
 		translate = { '\t': '\\t', '\n': '\\n', '\r': '\\r', '"': '\\"', '\\': '\\\\' };
 
 	chunk = chunk.replace(/[\t\n\r"\\]/g, function (x) { return translate[x]; });
-	command = 'file.write"' + chunk + '"';
+	command = 'file.write"' + chunk + '" file.flush()';
 
 	return this._sendCommand(command);
 };
