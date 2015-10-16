@@ -137,11 +137,18 @@ var config = {
 				.then(console.log)
 				.then(comms.close.bind(comms));
 		});
-	}
+	},
+
+  monitor: function() {
+		console.log("Displaying output from port " + port + ".");
+		console.log("Press ^C to stop.\n");
+		
+		new SerialComms(port).on('ready', function (comms) {
+			comms.monitor();
+		});  	
+  }
 
 };
-
-
 
 
 function execute (config, args) {
