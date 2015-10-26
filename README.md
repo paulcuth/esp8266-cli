@@ -78,8 +78,13 @@ $ esp run "print 'Mechanisms, not policy.'"
 Mechanisms, not policy.
 ```
 
+#### monitor
+Displays the data received from the serial port.
+```
+$ esp monitor
+Displaying output from port /dev/cu.wchusbserial1410.
+Press ^C to stop.
+```
+
 ## License
 MIT
-
-
-
