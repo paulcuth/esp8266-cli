@@ -82,5 +82,10 @@ SerialComms.prototype.close = function () {
 };
 
 
+SerialComms.prototype.monitor = function() {
+  this._port.on('data', function(data) {
+     process.stdout.write(data);
+   });
+}
 
 module.exports = SerialComms;
