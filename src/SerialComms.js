@@ -13,31 +13,25 @@ var SerialPort = require('serialport').SerialPort,
 function SerialComms (port) {
 	this._echoBuffer = '';
 	this._responseBuffer = '';
-	this._port = new SerialPort(port, { 
-		baudrate: 9600,
-		disconnectedCallback: process.exit
-	}, false);
+	this._port = new SerialPort(port, {
+		baudrate: 9600
+	});
 
 	this._initPort();
 }
 
-
 util.inherits(SerialComms, EventEmitter);
-
-
-
 
 SerialComms.prototype._initPort = function () {
 	var _this = this;
-
 	this._port.on('data', function (data) {
-		data = '' + data; 
+		data = '' + data;
 		var len = data.length,
 			response;
 
 		if (data == _this._echoBuffer.substr(0, len)) {
 			_this._echoBuffer = _this._echoBuffer.substr(len);
-		
+
 		} else {
 			_this._responseBuffer += data;
 
@@ -49,19 +43,12 @@ SerialComms.prototype._initPort = function () {
 		}
 	});
 
-	this._port.open(this._handlePortOpen.bind(this));
+	this._port.on('open', function () {
+		_this.emit('ready', _this);
+	});
+
+	this._port.on('disconnect', process.exit);
 };
-
-
-
-
-SerialComms.prototype._handlePortOpen = function (err) {
-	if (err) throw new Error('Failed to open port: ' + err);
-	this.emit('ready', this);
-}
-
-
-
 
 SerialComms.prototype.send = function (data) {
 	if (!this._port) throw new Error('Port not open');
